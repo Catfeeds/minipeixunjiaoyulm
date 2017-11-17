@@ -1,0 +1,28 @@
+
+  <view class="headLine ">
+    <view class="headLineWra "  wx:for="{{newsList}}" bindtap="jumpDetails" data-Id="{{item.id}}" data-title="{{item.name}}">
+      <view class="headLineContent ">
+        <view class="headLineTitle">
+          {{item.name}}
+        </view>
+        <view class="headLineInfor">
+        <view class="two">
+{{item.digest}}
+        </view>
+          <view class="headLineSource">
+            <text>{{item.cname}}</text>
+            <text class="cname">发布：{{item.source}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="arrowsBox box box-tb box-pack-center">
+        <image src="{{item.photo}}"></image>
+       <view class="headLineSource" style="font-size:32rpx;">
+          {{item.addtime}}
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="moreButton" bindtap="loadMore">
+    点击加载更多↓
+</view>

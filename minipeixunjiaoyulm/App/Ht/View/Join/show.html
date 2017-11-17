@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理程序</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery1.8.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<link href="__PUBLIC__/ht/css/order.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="aaa_pts_show_1"><span class="aaa_pts_show_2">【 店铺入驻审核 】</span></div>
+<div class="aaa_pts_show_2">
+    <div>
+       <div class="aaa_pts_4">入驻店铺查看</div>
+    </div>
+  
+  <div class="aaa_pts_show_5">
+   	<div class="aaa_pts_3">
+	    <div class="aaa_pts_3">
+	      <form action="{:U('shenhe')}?id={$id}" method="post" onsubmit="return ac_from();">
+	      <ul class="aaa_pts_5">
+	      	<li>
+	            <div class="d1">LOGO:</div>
+	            <div>
+	              <?php if ($info['logo']) { ?>
+	              	<img src="__DATA__/{$info.logo}" width="100px" height="100px">
+	              <?php } else { ?>
+	              	未设置
+	              <?php } ?>
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">店铺名称:</div>
+	            <div>
+	              {$info.name}
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">联系电话:</div>
+	            <div>
+	              {$info.tel}
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">负责人:</div>
+	            <div>
+	              {$info.uname}
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">地   址:</div>
+	            <div>
+	              {$info.address}
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">申请会员:</div>
+	            <div>
+	              {$info.cname}
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">申请时间:</div>
+	            <div>
+	              {$info.addtime}
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">身份证正面:</div>
+	            <div>
+	            <?php if ($info['zheng']) { ?> 
+	            	<input type="button" value="点击查看" onclick="win_open('{:U('getimg')}?type=1&shop_id={$info.id}',720,960)" style="width: 90px;height: 27px;margin-left: 10px;">
+	            <?php }else{ ?>
+	            	未上传
+	            <?php } ?>  
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">身份证反面:</div>
+	            <div>
+	              <?php if ($info['fan']) { ?> 
+	            	<input type="button" value="点击查看" onclick="win_open('{:U('getimg')}?type=2&shop_id={$info.id}',720,960)" style="width: 90px;height: 27px;margin-left: 10px;">
+	              <?php }else{ ?>
+	                未上传
+	              <?php } ?> 
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">营业执照:</div>
+	            <div>
+	              <?php if ($info['yyzz']) { ?> 	
+	            	<input type="button" value="点击查看" onclick="win_open('{:U('getimg')}?type=3&shop_id={$info.id}',720,960)" style="width: 90px;height: 27px;margin-left: 10px;">
+	              <?php }else{ ?>
+	                未上传
+	              <?php } ?> 
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">店面门头照:</div>
+	            <div>
+	              <?php if ($info['dianmian']) { ?>
+	            	<input type="button" value="点击查看" onclick="win_open('{:U('getimg')}?type=4&shop_id={$info.id}',720,960)" style="width: 90px;height: 27px;margin-left: 10px;">
+	              <?php }else{ ?>
+	                未上传
+	              <?php } ?> 
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">当前状态:</div>
+	            <div>
+	              <if condition="$info.audit eq 0"><label style="color:red;">待审核</label>
+		            <elseif condition="$info.audit eq 1" /><label style="color:green;">已认证</label>
+		            <elseif condition="$info.audit eq 2" /><label style="color:blue;">未通过审核</label>
+		            <else /><label style="color:gray;">未申请认证</label>
+		          </if>
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">审核状态:</div>
+	            <div>
+	               <input type="radio" name="audit" value="1" <?php if($info['audit']!=2) { ?>checked="checked"<?php } ?>/>审核通过<br />
+	               <input type="radio" name="audit" value="2" <?php if($info['audit']==2) { ?>checked="checked"<?php } ?>/> 不通过
+	            </div>
+	         </li>
+	         <li>
+	            <div class="d1">理由/原因:</div>
+	            <div>
+	              <textarea class="inp_1 inp_2" style="width:250px;height:60px;" name="reason" id="reason"/>{$info.reason}</textarea>
+	            </div><font style="color:gray;font-size:12px;">&nbsp;* 如不通过，请填写不通过原因</font>
+	         </li>
+	         <li><input type="submit" name="submit" value="提交审核" class="aaa_pts_web_3" border="0">
+	             <input type="hidden" name="id" value="{$info.id}">
+	         </li>
+	      </ul>
+	      </form> 
+	    </div>
+  	</div>
+</div>
+</body>
+</html>

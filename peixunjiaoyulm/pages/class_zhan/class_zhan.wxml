@@ -1,0 +1,72 @@
+<view class="new" >
+
+  <view class="biaoti">{{exInfo.title}}
+  <view class="riqi">
+    <text>{{exInfo.addtime}}</text>
+  </view>
+  
+  </view>
+
+  <!--<view class="riqi">
+    <text>{{courseInfo.addtime}}</text>
+  </view>-->
+  <!--新闻-->
+  <view class="news">
+<view>
+
+
+<view class="fang">{{exInfo.intro}}</view>
+    <image class="ima" src="{{exInfo.photo}}"></image>
+    <!--<view class="na">
+      <i> 基本信息 </i>
+    </view>-->
+    <p>
+      <b style="color:#666"> 报名费用：</b>
+      <text style="color:red;" wx:if="{{exInfo.price>0}}">{{exInfo.price}}</text>
+      <text wx:else>免费</text>
+    </p>
+    <p>
+      <b style="color:#666"> 展会时间：</b>
+      <text>{{exInfo.opentime}}-{{exInfo.endtime}}</text>
+    </p>
+    <p>
+      <b style="color:#666">举办单位：</b>
+      <text wx:if="{{exInfo.holder}}">{{exInfo.holder}}</text>
+      <text wx:else>无</text>
+    </p>
+    <p wx:if="{{courseInfo.class_hour}}">
+      <b style="color:#666" >展会地址:</b>
+      <text wx:if="{{exInfo.address}}">{{exInfo.address}}</text>
+      <text wx:else>待定</text>   
+    </p>
+    <p wx:else>
+      <b style="color:#666">展位数量：</b>
+      <text wx:if="{{exInfo.num}}">{{exInfo.boothnum}} 个</text>
+      <text wx:else>待定</text>
+    </p>
+    <p>
+      <b style="color:#666">咨询热线：</b>
+      <text wx:if="{{exInfo.tel}}">{{exInfo.tel}}</text>
+      <text wx:else>平台客服</text>
+    </p>
+    <p>
+      <b style="color:#666">联系邮箱：</b>
+      <text wx:if="{{exInfo.email}}">{{exInfo.email}}</text>
+      <text wx:else>无</text>
+    </p>
+    <p>
+      <b style="color:#666">报名截止：</b>
+      <text wx:if="{{exInfo.offtime}}">{{exInfo.offtime}}</text>
+      <text wx:else>待定</text>
+    </p>
+ </view>
+<!--<view class="na">
+    <i> 活动介绍 </i>
+</view>-->
+</view>
+</view>
+<!--<import src="../../wxParse/wxParse.wxml"/> 
+      <view class="wxParse" style="padding:0 18rpx 10rpx 14rpx;">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+      </view>-->
+      <button class="btn" bindtap="bm" data-id="{{exInfo.id}}" data-cprice="{{exInfo.price}}" data-title="{{exInfo.title}}">企业报名</button>

@@ -1,0 +1,211 @@
+<view class="cont">
+  <!--底部图片-->
+  <view class="dian">
+
+    <image class="dian_img" src="{{shopInfo.vip_char}}">
+    </image>
+    <view class="dian_ceng"></view>
+  </view>
+
+
+  <view class="cp">
+
+    <view class="nei">
+      <image class="log" src="{{shopInfo.logo}}"></image>
+
+      <view class="si">
+        <view style="margin-top:20rpx;">{{shopInfo.name}}</view>
+
+        <view class="xin" wx:if="{{shopInfo.grade>0 && shopInfo.grade<1}}">
+          <image class="xing" src="../../images/bann.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade==1}}">
+          <image class="xing" src="../../images/xing.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade>1 && shopInfo.grade<2}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/bann.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade==2}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade>2 && shopInfo.grade<3}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/bann.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade==3}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade>3 && shopInfo.grade<4}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/bann.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade==4}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade>4 && shopInfo.grade<5}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/bann.png"></image>
+        </view>
+        <view class="xin" wx:elif="{{shopInfo.grade==5}}">
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+          <image class="xing" src="../../images/xing.png"></image>
+        </view>
+        <view style="margin-top:8rpx;font-size:24rpx;" wx:else>
+          暂无评分
+        </view>
+
+        <text style="margin-right:10rpx;font-size:26rpx">销量:{{shopInfo.salenum}}</text>|
+        <text style="margin-left:10rpx;font-size:26rpx">收藏：{{shopInfo.collet}}</text>
+      </view>
+    </view>
+
+
+
+    <view class="tab">
+      <!--头部-->
+      <view class="tab-left" bindtap="tabFun">
+        <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}} a" id="tab-hd04" data-id="0">
+          <image class="img" src="../../images/icon-home.png"></image>
+          店铺简介
+        </view>
+        
+        <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}} a" id="tab-hd02" data-id="1">
+          <view class="v">{{shopInfo.tj}}</view>
+          推荐
+        </view>
+
+        <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}} a" id="tab-hd03" data-id="2">
+          <view class="v">{{shopInfo.newpro}}</view>
+          上新
+        </view>
+
+        <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}} a" id="tab-hd01" data-id="3">
+        <view class="v">{{shopInfo.all}}</view>
+          全部商品
+        </view>
+      </view>
+
+      
+      <view class="tab-right">
+        <view class="tab-right">
+          <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+            <import src="../../wxParse/wxParse.wxml"/> 
+            <view class="wxParse" style="margin-top:10rpx;padding:8rpx 14rpx;">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+            </view>
+          </view>
+
+        </view>
+        
+        <!--2-->
+        <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+          <view style="color:gray;font-size:24rpx;text-align:center;margin-top:10rpx;">
+          -- 店家推荐 --
+          </view>
+          <view class="list">
+            <block wx:key="*this">
+              <view class="ban" wx:for="{{tjList}}">
+                <navigator url="../product/detail?productId={{item.id}}" class="cover flex-wrp" >
+                  <image class="banner" src="{{item.photo_x}}" mode="widthFix"></image>
+                  <view class="act-item ellipsis">
+                    <text class="type">{{item.name}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text class="kkk">{{item.intro}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:red;font-size:30rpx;">¥ {{item.price_yh}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:#999999;font-size:25rpx">推荐</text>
+           <text style="color:#999999;font-size:25rpx;float:right">销量:{{item.shiyong}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+
+
+
+<!--3-->
+ <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+          <view style="color:gray;font-size:24rpx;text-align:center;margin-top:10rpx;">
+          -- 本周上新 --
+          </view>
+          <view class="list">
+            <block wx:key="*this">
+              <view class="ban" wx:for="{{newList}}">
+                <navigator url="../product/detail?productId={{item.id}}" class="cover flex-wrp" >
+                  <image class="banner" src="{{item.photo_x}}" mode="widthFix"></image>
+                  <view class="act-item ellipsis">
+                    <text class="type">{{item.name}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text class="kkk">{{item.intro}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:red;font-size:30rpx;">¥ {{item.price_yh}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:#999999;font-size:25rpx">新上架</text>
+           <text style="color:#999999;font-size:25rpx;float:right">销量:{{item.shiyong}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+
+<!--4-->
+      <view class="right-item {{tabArr.curBdIndex=='3'? 'active' : ''}}">
+ <view class="list">
+            <block wx:key="*this">
+              <view class="ban" wx:for="{{proList}}">
+                <navigator url="../product/detail?productId={{item.id}}" class="cover flex-wrp" >
+                  <image class="banner" src="{{item.photo_x}}" mode="widthFix"></image>
+                  <view class="act-item ellipsis">
+                    <text class="type">{{item.name}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text class="kkk">{{item.intro}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:red;font-size:30rpx;">¥ {{item.price_yh}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:#999999;font-size:25rpx" wx:if="{{item.is_show==1}}">新品上市</text>
+                    <text style="color:#999999;font-size:25rpx" wx:elif="{{item.is_hot==1}}">平台热销</text>
+                    <text style="color:#999999;font-size:25rpx" wx:elif="{{item.is_sale==1}}">折扣促销</text>
+                    <text style="color:#999999;font-size:25rpx" wx:else>店家推荐</text>
+                    <text style="color:#999999;font-size:25rpx;float:right">销量:{{item.shiyong}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+
+
+
+  </view>
+</view>

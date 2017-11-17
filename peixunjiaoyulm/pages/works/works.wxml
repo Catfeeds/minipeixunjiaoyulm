@@ -1,0 +1,119 @@
+<view class="container">
+ 
+ 
+   <view class="classname">
+        <view class="jj">请填写真实的个人信息，我们会有专业的老师给您进行评估，与您联系。谢谢！</view>
+
+  <form bindsubmit="reg">      
+        <view class="xing">姓名：   
+         <input placeholder-class='placeholder' placeholder='请输入你的姓名' class="in" name="truename"  bindinput="bindKeyInput"/>
+         </view>
+
+        <view class="xing">性别：   
+         <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+              <radio value="1" name="sex"/>男
+          </label>
+          <label class="radio">
+              <radio value="2" name="sex" />女
+          </label>
+      </radio-group>
+         </view>
+
+<view class="section">
+   <view class="myphone">生日:</view>
+  <picker mode="date" value="{{date}}" start="1940-01-01" end="{{date}}" bindchange="bindDateChange">
+    <view class="nb">
+    {{date}}
+    </view>
+  </picker>
+</view>
+  <view class="xing">常住城市：
+      <input placeholder-class='placeholder'  placeholder='请输入您的常住地区'  class="in" name='city' />
+  </view>
+
+        <view class="xing">婚姻状况：   
+         <radio-group class="radio-group" bindchange="hyChange">
+          <label class="radio">
+              <radio value="1" name="hy"/>未婚
+          </label>
+          <label class="radio">
+              <radio value="2" name="hy" />离异
+          </label>
+            <label class="radio">
+              <radio value="3" name="hy" />丧偶
+          </label>
+      </radio-group>
+         </view>
+
+
+    <view class="xing">身高：
+      <input placeholder-class='placeholder'  placeholder='请输入您的身高'  class="in" name='tall' />
+    </view>
+
+
+<view class="section">
+   <view class="myphone">学历:</view>
+  <picker bindchange="li" value="{{xl}}" range="{{li}}">
+    <view class="nb">
+       {{li[xl]}}
+    </view>
+  </picker>
+</view>
+
+
+<view class="section">
+   <view class="myphone">月薪:</view>
+  <picker bindchange="yue" value="{{yx}}" range="{{yue}}">
+    <view class="nb">
+       {{yue[yx]}}元
+    </view>
+  </picker>
+</view>
+
+        <view class="xing">联系方式：
+           <input placeholder-class='placeholder'  placeholder='请输入你的联系方式'  type='number' class="in" name='tel' />
+        </view>
+
+        <view class="xing">微信号：
+           <input placeholder-class='placeholder'  placeholder='请输入你的微信'  class="in" name='weixin' />
+        </view>
+
+        <view class="xing">QQ：
+           <input placeholder-class='placeholder'  placeholder='请输入你的QQ'  type='number' class="in" name='qq'/>
+        </view>
+        <view class="xing">地址：
+           <input placeholder-class='placeholder'  placeholder='请输入你的地址'  class="in" name='address' />
+        </view>
+        <view class="xing">邮箱：
+           <input placeholder-class='placeholder'  placeholder='请输入你的邮箱'   class="in" name='email'/>
+        </view>
+
+        <view class="xing">备注：
+           <input placeholder-class='placeholder'  placeholder='留下你的疑问'   class="in" name='remark'/>
+        </view>
+        <view class="xing" wx:if="{{currId>0}}">
+          活动：{{title}}
+          <input hidden="true" name="cid" value="{{cid}}"/>
+        </view>
+        <picker bindchange="bindChangeCourse" value="{{courseIndex}}" range="{{courseList}}" data-id="{{courseId[courseIndex]}}" wx:if="{{currId==0}}">
+          <view class="xing">
+            活动：{{courseList[courseIndex]}}
+            <input hidden="true" name="cid" value="{{courseId[courseIndex]}}"/>
+            <input hidden="true" name="cprice" value="{{coursePrice[courseIndex]}}"/>
+          </view>
+        </picker>
+        <view class="xing" wx:if="{{currId>0}}">报名费用：
+           <text style="color:red;">{{cprice}}元</text>
+           <input hidden="true" name="cprice" value="{{cprice}}"/>
+        </view>
+        <view class="xing">理想对象：
+          <textarea placeholder-style='font-size:26rpx;' maxlength='150' placeholder="请说说你理想中的对象(限150字)" name="lxdx"/>
+        </view>  
+<button type="primary"    
+   form-type="submit" class='su'>提交</button>
+   </form>   
+
+   </view>
+
+</view> 

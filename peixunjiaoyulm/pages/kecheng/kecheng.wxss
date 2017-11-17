@@ -1,0 +1,56 @@
+.prr {
+  margin-bottom: 10px;
+  background: #fff;
+  display: inline-block;
+  width: 45%;
+  margin-left: 26rpx;
+}
+.cont_image {
+  width: 100%;
+  height: 285rpx;
+  border-radius:5rpx; 
+}
+
+.co {
+  width: 100%;
+  background: #fff;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+.co .title {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 20px;
+  margin: 0;
+  height: 20px;
+  padding: 1% 5% 0 5%;
+  font-weight: 700;
+  overflow:hidden;
+text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-line-clamp:1;
+-webkit-box-orient:vertical;
+
+}
+.gmh{
+  float:left;  padding: 1% 5% 5% 5%;
+}
+.gmxx .jiage {
+  font-size: 14px;
+  color: #d9002f;
+  /*padding-top: 10px; */
+}
+.gmx .xiaoliang {
+  font-size: 26rpx;
+}
+.gmh .xiaoliang {
+  font-size: 25rpx;
+ 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient:vertical;
+  /*height: 96rpx;*/
+  color: gray;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理程序</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery1.8.js"></script>
+<link href="__PUBLIC__/ht/css/order.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="aaa_pts_show_1"><span class="aaa_pts_show_2">【 入驻会员管理 】</span></div>
+<div class="aaa_pts_show_2">
+  	<div>
+       <div class="aaa_pts_4">信息查看修改</div>
+    </div>
+  
+  <div class="aaa_pts_show_5">
+   <div class="aaa_pts_3">
+	  <div class="ord_show_3">
+		 <div>入驻时间：<font><?php echo date("Y-m-d H:i",$info['addtime']); ?></font></div>
+		 <div>状态：<label style="color:red;"><if condition="$info.pay_state eq 1">已支付<else />待支付</if></label></div>
+      </div>
+      
+     <div style="border-bottom:1px solid #b9c9d6;">
+	 <ul style="margin-top:15px;  padding-bottom:5px; width:500px; float:left;">
+         <li style="font-size:15px; color:#000;">会员信息：</li>
+         <li style="padding-top:5px;">
+             <div style="margin: 5px 0;">姓名：<?php echo $info['truename']; ?></div>
+             <div style="margin: 5px 0;">联系方式：<?php echo $info['tel']; ?></div>
+             <div style="margin: 5px 0;">性别：<if condition="$info.sex eq 2">女<else />男</if></div>
+    			 <div style="margin: 5px 0;">年龄：<?php echo $info['birthday']; ?></div>
+    			 <div style="margin: 5px 0;">QQ：<?php echo $info['qq']; ?></div>
+    			 <div style="margin: 5px 0;">微信：<?php echo $info['weixin']; ?></div>
+    			 <div style="margin: 5px 0;">邮箱：<?php echo $info['email']; ?></div>
+           <div style="margin: 5px 0;">身高：<?php echo $info['sg']; ?></div>
+           <div style="margin: 5px 0;">学历：<?php echo $info['xl']; ?></div>
+           <div style="margin: 5px 0;">月薪：<?php echo $info['yx']; ?></div>
+           <div style="margin: 5px 0;">婚姻状况：<if condition="$info.hy eq 1">未婚<elseif condition="$info.hy eq 2" />离异<elseif condition="$info.hy eq 3" />丧偶<else />未填写</if></div>
+    			 <div style="margin-bottom: 5px;">地址：<?php echo $info['address']; ?></div>
+         </li>
+      </ul>
+	  <ul style="margin-top:15px; padding-bottom:5px; width:300px; float:left;">
+         <li style="font-size:15px; color:#000;">理想对象：</li>
+         <li style="padding:5px 0 0 0; padding-top:5px; color:#090; font-size:14px;">
+             <?php echo $info['lxdx']; ?>
+         </li>
+		 <li style="font-size:15px; color:#000;margin-top: 30px;">自我评价：</li>
+         <li style="padding:5px 0 0 0; color:#090; font-size:14px;">
+            <?php echo $info['intro']; ?>
+         </li>
+	 </ul> 
+	  </div>
+      <!-- <div class="ord_show_5">
+         <div style="color:#c00; line-height:28px;">状态变为已处理时，表示报名成功。</div>
+         <div class="ord_show_4" style="margin-top: 5px;">
+            状态修改：
+            <select id="up_state">
+            	<option value="">全部状态</option>
+			    <option value="1" <?php //if($info['state']==1) { ?>selected="selected"<?php //} ?> >- 报名中</option>
+			    <option value="2" <?php //if($info['state']==2) { ?>selected="selected"<?php //} ?> >- 报名成功</option>
+            </select>
+         </div>
+         <input type="button" value="提交" style="border-radius: 5px;width: 80px;border: solid 1px #999;height: 30px; cursor:pointer;margin-left: 20%;" onclick="sms_message()"/>
+         <input type="hidden" value="<?php //echo $info['state']; ?>" name="state" id="state">
+      </div> -->
+      
+   </div>
+  </div>
+</div>
+<script>
+
+//保存快递名称，快递单号
+function sms_message(){
+	try{
+		//获取当前状态
+		var state = $('#state').val();
+		//获取选择状态
+		var up_state = $('#up_state').val();
+		if (state == up_state) {
+			alert('没有获取到修改信息！');
+			return false;
+		};
+		
+		$.ajax({
+            type: "POST",
+			url: "{:U('up_state')}",
+			data:{'up_state':up_state,'id':<?php echo $info['id'];?>},
+            dataType: "json",
+            success: function (data) {
+                if(data.returns){
+				   alert('提交成功！');
+				   window.location.reload();
+				}else{
+				   alert(data.message);
+				}
+				
+            },
+            error: function (msg) {
+				alert ('网络连接失败！');
+            }
+        });
+		
+	}catch(e){
+		alert(e);
+	}
+}
+</script>
+</body>
+</html>

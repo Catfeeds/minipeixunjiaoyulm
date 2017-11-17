@@ -1,0 +1,10 @@
+<view class="co">
+    <navigator class="prr" wx:for="{{courseList}}" url="../class/class?courseId={{item.id}}&title={{item.title}}" hover-class="changestyle" >
+      <image class="cont_image" src="{{item.photo}}"></image>
+      <view class="title ">{{item.title}}</view>
+      <view class="gmh df">
+        <span class="xiaoliang df_2">{{item.intro}}</span>
+      </view>
+    </navigator>
+</view>
+     

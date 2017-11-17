@@ -1,0 +1,301 @@
+/**index.wxss**/
+
+.page{
+  font-family: '微软雅黑';
+  height: 100%;
+}
+
+
+/*供求*/
+
+.tab {
+  flex-direction: row;
+  width: 100%;
+}
+
+.tab-left {
+  width: 100%;
+  line-height: 160%;
+  font-size: 32rpx;
+  border-bottom: solid 1px #ccc;
+}
+
+.tab-left .j {
+  text-align: center;
+  display: inline-block;
+  width: 25%;
+  padding: 20rpx 0;
+}
+
+.tab-left .active {
+  color: #f00;
+  /*border-bottom: solid 1px red;*/
+}
+
+.tab-right {
+  line-height: 160%;
+}
+
+.tab-right .right-item {
+  display: none;
+}
+
+.tab-right .right-item.active {
+  display: block;
+}
+
+
+
+/*上三角*/
+.triangle-up {
+width:0;
+height:0;   
+border-left:8rpx solid transparent;   
+border-right:8rpx solid transparent;   
+border-bottom:8rpx solid #000;display:inline-block;
+float: right;
+position: absolute;
+top: 36rpx;
+margin-left: 10rpx;
+}
+ .j .san{
+border-left:8rpx solid transparent;   
+border-right:8rpx solid transparent;   
+border-bottom:8rpx solid #f00;
+   }
+/*下三角*/
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 8rpx solid transparent;
+    border-right: 8rpx solid transparent;
+    border-top: 8rpx solid #000;     
+        display:inline-block;
+    position: absolute;
+    top: 50rpx;margin-left: 10rpx;
+
+}
+ .j .sa{
+    border-left: 8rpx solid transparent;
+    border-right: 8rpx solid transparent;
+    border-top: 8rpx solid red;   
+   }
+/*店铺*/
+.shop {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  /*overflow: hidden;*/
+  /*margin-top: -12rpx;*/
+  background: #f5f5f5
+}
+
+.shop.list {
+  padding-top: 30rpx;
+  margin-bottom: 25rpx;
+  background: #fff;
+}
+
+.brand_item {
+  display: block;
+  position: relative;
+  margin-left: 135rpx;
+}
+
+.pic {
+  display: inline-block;
+  float: left;
+  width: 180rpx;
+  height: 180rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.right_cont {
+  display: block;
+  position: relative;
+  margin-left: 90rpx;
+}
+
+.li_title {
+  width: 100%;
+  padding-top: 10rpx;
+  height: 30rpx;
+  max-width: 85%;
+  margin: 0;
+  line-height: 26rpx;
+  font-size: 32rpx;
+  font-weight: normal;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.title {
+  width: auto;
+  float: left;
+}
+
+.rzpic {
+  display: block;
+  float: left;
+  width: 28rpx;
+  height: 30rpx;
+  line-height: 33rpx;
+  padding-left: 10rpx;
+  color: #dd2a2a;
+}
+
+.comment {
+  display: block;
+  max-width: 100%;
+  height: 40rpx;
+  margin: 15rpx 0;
+  color: #dd2a2a;
+  
+}
+
+.star {
+  font-size:24rpx;
+  color:gray;
+}
+
+.star_span {
+
+height:34rpx;
+width:67%;
+/*display:flex;*/
+display:inline-block;
+
+}
+.star_span image{
+  height:100%;
+  width: 35rpx;
+}
+
+.discount {
+  float: right;
+  margin-right: 20rpx;
+  color: #dd2a2a;
+  position: relative;
+  top:44rpx;
+
+}
+
+.dlt {
+  font-size: 50rpx;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.drt {
+  padding-left: 5rpx;
+  font-size: 30rpx;
+}
+
+.other {
+  display: inline-block;
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 26rpx;
+  font-style: normal;
+  color: #888;
+  padding-bottom: 8rpx;
+}
+
+.olt {
+  float: left;
+}
+
+.ort {
+  float: right;
+  margin-right: 20rpx;
+  font-size: 35rpx;
+  color: #dd2a2a
+}
+
+.right_cont .price {
+  width: 95%;
+  height: auto;
+  padding: 10rpx 5rpx;
+  border-top: 1rpx solid #aaa;
+}
+
+.price1 {
+  width: 100%;
+  height: 45rpx;
+}
+
+.price2 {
+  width: 100%;
+  height: 45rpx;
+}
+
+.right_cont .coupon1 {
+  display: inline-block;
+  float: left;
+  width: 33rpx;
+  height: 33rpx;
+  padding-top: 4rpx;
+  margin-right: 10rpx;
+  background: #00b7ee;
+  line-height: 33rpx;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  font-size: 27rpx;
+  font-style: normal;
+  border-radius: 5rpx;
+}
+
+.right_cont .coupon2 {
+  display: inline-block;
+  float: left;
+  width: 33rpx;
+  height: 33rpx;
+  padding-top: 4rpx;
+  margin-right: 10rpx;
+  background: #f6ac19;
+  line-height: 33rpx;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  font-size: 27rpx;
+  font-style: normal;
+  border-radius: 5rpx;
+}
+
+.right_cont .dispan {
+  display:block;
+  padding-top: 4rpx;
+  line-height: 36rpx;
+  vertical-align: middle;
+  font-size: 27rpx;
+  color: #666;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.right_cont .marketprice {
+  text-decoration: line-through;
+  color: #939393;
+}
+
+
+
+.nav{
+  margin-bottom:30rpx;
+  border-bottom: 10px solid #f5f5f5
+}
+
+.xian {
+  width: 100%;
+  height: 32rpx;
+  background:#F5F5F5;
+}

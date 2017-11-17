@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/ht/css/jquery.datetimepicker.css"/>
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/xheditor/xheditor-1.2.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/xheditor/xheditor_lang/zh-cn.js"></script>
+</head>
+<script type="text/javascript">
+$(function(){
+    //初始化编辑器
+    $('#content').xheditor({
+      skin:'nostyle' ,
+      upImgUrl:'{:U("Upload/xheditor")}'
+    });
+}); 
+</script>
+<body>
+
+<div class="aaa_pts_show_1">【 展会管理 】</div>
+
+<div class="aaa_pts_show_2">
+    
+    <div>
+       <div class="aaa_pts_4"><a href="{:U('index')}">全部展会</a></div>
+       <div class="aaa_pts_4"><a href="{:U('add')}">展会编辑</a></div>
+    </div>
+    <div class="aaa_pts_3">
+      <form action="{:U('save')}" method="post" enctype="multipart/form-data" onsubmit="return ac_from();">
+      <ul class="aaa_pts_5">
+         <li>
+            <div class="d1">展会主题:</div>
+            <div>
+              <input class="inp_1" name="title" id="title" style="width:400px;" value="<?php echo $info['title']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">简单摘要:</div>
+            <div>
+              <textarea class="inp_1 inp_2" name="intro" id="intro" style="height:80px; width:400px;"/><?php echo $info['intro']; ?></textarea>
+            </div>
+         </li>
+         <li>
+            <div class="d1">报名费用:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="price" id="price" value="<?php echo $info['price']; ?>"/> &nbsp;&nbsp;如果不填则表示免费
+            </div>
+         </li>
+         <li>
+            <div class="d1">开始时间:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="opentime" id="opentime" value="<?php echo $info['opentime']; ?>" onfocus="getdate();" />&nbsp;&nbsp;如果不填则表示待定(格式：2017-08-08 08:00)
+            </div>
+         </li>
+         <li>
+            <div class="d1">结束时间:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="endtime" id="endtime" value="<?php echo $info['endtime']; ?>"/>&nbsp;&nbsp;如果不填则表示待定(格式：2017-08-08 08:00)
+            </div>
+         </li>
+         <li>
+            <div class="d1">展会地点:</div>
+            <div>
+              <input class="inp_1" name="address" id="address" value="<?php echo $info['address']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">展位数量:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="boothnum" id="boothnum" value="<?php echo $info['boothnum']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">举办单位:</div>
+            <div>
+              <input class="inp_1" name="holder" id="holder" value="<?php echo $info['holder']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div style="color:#c00; font-size:14px; padding-left:20px;">上传图片大小：400*340 格式为jpg、jpeg、png</div>
+         </li>
+         <li>
+            <div class="d1">列表展示图:</div>
+            <div>
+              <if condition="$info['photo'] neq ''">
+              <img src="__DATA__/<?php echo $info['photo']; ?>" />
+              </if>
+			        <input type="file" name="file" id="photo" />
+            </div>
+         </li>
+         <li>
+            <div class="d1">咨询热线:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="tel" id="tel" value="<?php echo $info['tel']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">咨询邮箱:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="email" id="email" value="<?php echo $info['email']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">报名截止时间:</div>
+            <div>
+              <input style="width: 150px;" class="inp_1" name="offtime" id="offtime" value="<?php echo $info['offtime']; ?>"/>&nbsp;&nbsp;如果不填则表示待定(格式：2017-08-08 08:00)
+            </div>
+         </li>
+         <!-- <li>
+            <div class="d1">活动介绍:</div>
+            <div>
+              <textarea class="inp_1 inp_2" name="content" id="content"/><?php //echo $info['content']; ?></textarea>
+            </div>
+         </li> -->
+         <input type="hidden" name="id" value="<?php echo (int)$info['id']; ?>"/>
+         <li><input type="submit" name="submit" value="提交" class="aaa_pts_web_3" border="0"></li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+<script>
+function ac_from(){
+
+  var title=document.getElementById('title').value;
+  if(!title){
+	  alert('请输入展会主题！');
+	  return false;
+	} 
+	  
+}
+</script>
+<!-- <script src="__PUBLIC__/ht/js/jquery.date.js"></script>
+<script src="__PUBLIC__/ht/js/jquery.datetimepicker.js"></script> -->
+<script>
+/*$('#opentime').datetimepicker({
+      format:'Y-m-d H:00',
+      formatDate:'Y-m-d H:00',
+    });*/
+</script> 
+</body>
+</html>

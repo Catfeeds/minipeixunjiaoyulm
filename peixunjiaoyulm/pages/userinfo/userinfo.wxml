@@ -1,0 +1,45 @@
+<view class="container">
+ 
+ 
+  <view class="classname">   
+    <view class="xing">用户名： {{info.uname}}<text style="color:red;">({{info.utype}})</text>
+    </view>
+    <view class="xing">性别：  
+      <text wx:if="{{info.sex==2}}">女</text>
+      <text wx:else>男</text>
+    </view>
+    <view class="xing">年龄：  <text>{{info.birthday}}</text>
+    </view>
+    <view class="xing">城市：  <text>{{info.cityname}}</text>
+    </view>
+    <view class="xing">婚姻状况：  
+      <text wx:if="{{info.hy==1}}">未婚</text>
+      <text wx:elif="{{info.hy==2}}">离异</text>
+      <text wx:elif="{{info.hy==3}}">丧偶</text>
+      <text wx:else>其他</text>
+    </view>
+    <view class="xing">身高：  <text>{{info.sg}}</text>
+    </view>
+    <view class="xing">学历： <text>{{info.xl}}</text>
+    </view>
+    <view class="xing">月薪： <text>{{info.yx}}</text>
+    </view>
+    <!-- <view class="xing">联系方式：  <text>{{info.tel}}</text>
+    </view>
+    <view class="xing">微信号：  <text>{{info.weixin}}</text>
+    </view>
+    <view class="xing">QQ：  <text>{{info.qq}}</text>
+    </view> -->
+
+    <!-- <view class="xing">地址：   <text>{{info.address}}</text>
+    </view> -->
+    <view class="xing">邮箱：  <text>{{info.email}}</text>
+    </view>
+
+    <view class="xing">个性签名： <text>{{info.intro}}</text>
+    </view>
+
+    <view class="xing">理想对象：  <text>{{info.lxdx}}</text>
+    </view>
+   </view>
+</view> 

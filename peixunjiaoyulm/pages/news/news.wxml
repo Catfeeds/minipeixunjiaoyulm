@@ -1,0 +1,16 @@
+<view class="new">
+     <view class="biaoti">{{info.name}}</view>
+
+<view class="riqi">
+        <text>{{info.source}}</text>
+        <text style="margin-left:10%;">阅读量：{{info.click}}</text>
+        <text style="margin-left:10%;">{{info.addtime}}</text>
+</view>
+<view>
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse" style="padding-left:24rpx;padding-top:20rpx;padding-right:10rpx;">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+</view>
+
+</view>

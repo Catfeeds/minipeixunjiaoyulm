@@ -1,0 +1,92 @@
+
+.he {
+  display: block;
+  height: 603rpx;
+}
+
+.y {
+  width: 33%;
+  height: 500rpx;
+  display: inline-block;
+  margin-left: 10rpx;
+}
+
+.headLine {
+  width: 100%;
+    font-family: "微软雅黑", "黑体";
+}
+
+.headLineWra {
+  height: 234rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #ccc;
+  display: flex;
+  padding: 50rpx 0;
+}
+
+.headLineSource{
+  margin-left: 24rpx;
+  font-size: 27rpx;
+  color: #ccc;
+}
+
+.cname{
+  margin-left: 20%;
+  /*color: #ccc;*/
+}
+.headLineContent {
+  width: 70%;
+  height: 100%;
+}
+
+.headLineTitle {
+  width: 90%;
+  height: 86rpx;
+  line-height: 46rpx;
+  font-weight: 700;
+  font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin: 25rpx;
+  margin-top:0px; 
+}
+
+.headLineInfor {
+  width: 99%;
+  color: #666;
+}
+
+.two{
+  font-size:30rpx;
+  height: 78rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+   margin: 20rpx ;
+}
+.arrowsBox {
+  width: 30%;
+  height: 100%;
+}
+
+.arrowsBox image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.moreButton {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 40rpx;
+  text-align: center;
+  /*line-height: 80rpx;*/
+  font-size: 28rpx;
+  margin-bottom:15px;
+
+  /*color: #ccc;*/
+}

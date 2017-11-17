@@ -1,0 +1,56 @@
+<view class="register">
+    <view class="user">
+        <text style="color:#000">企业名称：</text>
+        <input class="in" data-value="{{name}}" name="name"  bindblur="bindShopname" value="{{name}}"/>
+    </view>
+
+    <view class="user">
+        <text style="color:#000">法人代表：</text>
+        <input class="in" data-value="{{uname}}" name="uname"  bindblur="bindKeyname" value="{{uname}}"/>
+    </view>
+
+<!--手机-->
+    <view class="user">
+        <text style="color:#000">联系方式：</text>
+        <input class="in" type="number" data-value="{{tel}}" name="tel"  bindblur="bindTelInput" value="{{tel}}"/>
+    </view>
+
+    <p class='ru'>ps : 请上传身份证、营业执照图片文件</p>
+<!--上传-->
+<view class="ii">( 身份证正面）</view>
+<view class="page-body-info">
+<!--one-->
+    <view class="kg">
+  <block wx:if="{{imageSrc}}">
+      <image src="{{imageSrc}}" class="image" mode="aspectFit"></image>
+  </block>
+ <block wx:else>
+   <view class="image-plus image-plus-nb" bindtap="chooseImage">
+      <image src="{{idcard}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:if="{{idcard}}"></image>
+      <image src="{{logo}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:else></image>
+   </view>
+  </block>
+  </view>
+</view>
+
+<!--上传-->
+<view class="ii">( 营业执照）</view>
+
+<view class="page-body-info">
+<!--one-->
+    <view class="kg">
+  <block wx:if="{{images}}">
+      <image src="{{images}}" class="image" mode="aspectFit"></image>
+  </block>
+ <block wx:else>
+   <view class="image-plus image-plus-nb" bindtap="images">
+      <image src="{{yyzz}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:if="{{yyzz}}"></image>
+      <image src="{{logo}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:else></image>
+   </view>
+  </block>
+      </view>
+</view>
+<view class="but">
+    <button bindtap="formDataCommit" disabled="{{disabled}}" style="color:#000">  提交信息</button>
+</view>
+</view>

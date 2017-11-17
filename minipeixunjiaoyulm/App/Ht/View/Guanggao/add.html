@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/xheditor/xheditor-1.2.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/xheditor/xheditor_lang/zh-cn.js"></script>
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 广告管理 】</div>
+
+<div class="aaa_pts_show_2">
+    
+    <div>
+       <div class="aaa_pts_4"><a href="{:U('index')}">全部广告</a></div>
+       <div class="aaa_pts_4"><a href="{:U('add')}">添加广告</a></div>
+    </div>
+    <div class="aaa_pts_3">
+      <form action="{:U('save')}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+      <ul class="aaa_pts_5">
+         <li>
+            <div class="d1">广告标题:</div>
+            <div>
+              <input class="inp_1" name="name" id="name" value="<?php echo $adv_info['name']; ?>"/>
+            </div>
+         </li>
+         <li>
+            <div class="d1">显示位置:</div>
+            <div>
+               <select class="inp_1" id="position" name="position">
+                  <!-- <option value="">无</option> -->
+                  <option value="1" <?php echo $adv_info['position']==1 ? 'selected="selected"' : NULL; ?>>&nbsp;- 首页轮播</option>
+                  <option value="2" <?php echo $adv_info['position']==2 ? 'selected="selected"' : NULL; ?>>&nbsp;- 中部轮播</option>
+               </select>
+            </div>
+         </li>
+		     <li>
+            <div class="d1">跳转事件:</div>
+            <div>
+               <select class="inp_1" id="type" name="type" onchange="upwarn();">
+                  <option value="">无</option>
+                  <option value="index" <?php echo $adv_info['type']=='index' ? 'selected="selected"' : NULL; ?>>首页</option>
+                  <option value="cat" <?php echo $adv_info['type']=='cat' ? 'selected="selected"' : NULL; ?>>分类页</option>
+                  <option value="procat" <?php echo $adv_info['type']=='procat' ? 'selected="selected"' : NULL; ?>>分类商品列表页</option>
+                  <option value="prolist" <?php echo $adv_info['type']=='prolist' ? 'selected="selected"' : NULL; ?>>全部商品列表页</option>
+                  <option value="pro" <?php echo $adv_info['type']=='pro' ? 'selected="selected"' : NULL; ?>>商品详情页</option>
+                  <option value="newslist" <?php echo $adv_info['type']=='newslist' ? 'selected="selected"' : NULL; ?>>新闻资讯列表页</option>
+                  <option value="news" <?php echo $adv_info['type']=='news' ? 'selected="selected"' : NULL; ?>>新闻资讯详情页</option>
+                  <option value="shoplist" <?php echo $adv_info['type']=='shoplist' ? 'selected="selected"' : NULL; ?>>商铺列表页</option>
+                  <option value="shop" <?php echo $adv_info['type']=='shop' ? 'selected="selected"' : NULL; ?>>商铺详情页</option>
+                  <option value="join" <?php echo $adv_info['type']=='join' ? 'selected="selected"' : NULL; ?>>加盟合作页</option>
+                  <option value="life" <?php echo $adv_info['type']=='life' ? 'selected="selected"' : NULL; ?>>生活专区页</option>
+                  <option value="courselist" <?php echo $adv_info['type']=='courselist' ? 'selected="selected"' : NULL; ?>>活动列表页</option>
+                  <option value="course" <?php echo $adv_info['type']=='course' ? 'selected="selected"' : NULL; ?>>活动详情页</option>
+                  <option value="vou" <?php echo $adv_info['type']=='vou' ? 'selected="selected"' : NULL; ?>>优惠券列表页</option>
+               </select>
+            </div>
+         </li>
+         <li>
+            <div class="d1">事件值:</div>
+            <div>
+              <input class="inp_1" name="action" id="action" value="<?php echo $adv_info['action']; ?>"/> 
+              &nbsp;&nbsp;<span style="color:red;font-size: 12px;" id="warning">&nbsp;*&nbsp;跳转事件为首页、列表页时，无需填写；商品详情、新闻详情、商铺详情等请填写相应的id值。</span>
+            </div>
+         </li>
+        <span style="color:red;font-size: 12px;margin-left:1%;">头部轮播图：420*200；中部轮播图：420*150；</span>
+         <li data-index="" style="margin-top:10px;">
+
+            <div class="d1">广告图片:</div>
+            <div>
+             <input type="hidden" name="photo" id="photo" value="<?php echo $adv_info['photo']; ?>"/>
+              <?php if ($adv_info['photo']) { ?>
+              <img src="__DATA__/<?php echo $adv_info['photo']; ?>" width="200" height="100" /><br /><br />
+              <?php } ?>
+              <input type="file" name="file" id="file" value="">
+            </div>
+         </li>
+         <li>
+            <div class="d1">排序:</div>
+            <div>
+              <input class="inp_1" name="sort" id="sort" value="<?php echo $adv_info['sort']; ?>"/> 
+            </div>
+         </li>
+         <li><input type="submit" name="submit" value="提交" class="aaa_pts_web_3" border="0" >
+            <input type="hidden" name="adv_id" id="adv_id" value="<?php echo $adv_info['id']; ?>">
+         </li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+<script>
+function ac_from(){
+  var name=document.getElementById('name').value;
+  if(name.length<2){
+	  alert('广告标题长度不能少于2');
+	  return false;
+	  } 
+}
+
+//自动更换提示语
+function upwarn(){
+  var names = $("#type").val();
+  if (names=='') {
+    var title = '&nbsp;*&nbsp;跳转事件为首页、列表页时，无需填写；商品详情、新闻详情、商铺详情等请填写相应的id值.';
+    $("#warning").html(title);
+  }else if (names=='index') {
+    var title = '&nbsp;*&nbsp;跳转事件为首页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='cat') {
+    var title = '&nbsp;*&nbsp;跳转事件为分类页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='procat') {
+    var title = '&nbsp;*&nbsp;跳转事件为分类商品列表页，请输入分类ID.';
+    $("#warning").html(title);
+    $("#warning").css('color','red');
+  }else if (names=='prolist') {
+    var title = '&nbsp;*&nbsp;跳转事件为商品列表页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='pro') {
+    var title = '&nbsp;*&nbsp;跳转事件为商品详情页，请输入商品ID.';
+    $("#warning").html(title);
+    $("#warning").css('color','red');
+  }else if (names=='newslist') {
+    var title = '&nbsp;*&nbsp;跳转事件为新闻资讯列表页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='news') {
+    var title = '&nbsp;*&nbsp;跳转事件为新闻资讯详情页，请输入新闻资讯ID.';
+    $("#warning").html(title);
+    $("#warning").css('color','red');
+  }else if (names=='shoplist') {
+    var title = '&nbsp;*&nbsp;跳转事件为商铺列表页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='shop') {
+    var title = '&nbsp;*&nbsp;跳转事件为商铺详情页，请输入商铺ID.';
+    $("#warning").html(title);
+    $("#warning").css('color','red');
+  }else if (names=='join') {
+    var title = '&nbsp;*&nbsp;跳转事件为加盟合作页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='life') {
+    var title = '&nbsp;*&nbsp;跳转事件为生活专区页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='vou') {
+    var title = '&nbsp;*&nbsp;跳转事件为优惠券列表页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='courselist') {
+    var title = '&nbsp;*&nbsp;跳转事件为活动列表页，无需填写事件值.';
+    $("#warning").html(title);
+    $("#warning").css('color','gray');
+  }else if (names=='course') {
+    var title = '&nbsp;*&nbsp;跳转事件为活动详情页，请输入活动ID.';
+    $("#warning").html(title);
+    $("#warning").css('color','red');
+  }
+}
+</script>
+</body>
+</html>

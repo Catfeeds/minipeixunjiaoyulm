@@ -1,0 +1,56 @@
+<view class="new" >
+
+  <view class="biaoti">{{courseInfo.title}}</view>
+
+  <view class="riqi">
+    <text>{{courseInfo.addtime}}</text>
+  </view>
+  <!--新闻-->
+  <view class="news">
+<view>
+    <image class="ima" src="{{courseInfo.photo}}"></image>
+    <view class="na">
+      <i> 基本信息 </i>
+    </view>
+    <p>
+      <b style="color:#666">报名费用：</b>
+      <text style="color:red;" wx:if="{{courseInfo.price>0}}">{{courseInfo.price}}</text>
+      <text wx:else>免费</text>
+    </p>
+    <p>
+      <b style="color:#666">活动时间：</b>{{courseInfo.opentime}}
+    </p>
+    <p wx:if="{{courseInfo.class_hour}}">
+      <b style="color:#666" >活动时长：</b>{{courseInfo.class_hour}}
+    </p>
+    <p wx:else>
+      <b style="color:#666">活动时长：</b>
+      待定
+    </p>
+    <p>
+      <b style="color:#666">适合人群：</b>
+      {{courseInfo.people}}
+    </p>
+    <p>
+      <b style="color:#666">活动目的：</b>
+      {{courseInfo.teach_goals}}
+    </p>
+    <p wx:if="{{courseInfo.address}}">
+      <b style="color:#666">活动地点：</b>
+      {{courseInfo.address}}
+    </p>
+    <p wx:else>
+      <b style="color:#666">活动地点：</b>
+      待定
+    </p>
+ </view>
+<view class="na">
+    <i> 活动介绍 </i>
+</view>
+</view>
+</view>
+<import src="../../wxParse/wxParse.wxml"/> 
+      <view class="wxParse" style="padding:0 18rpx 10rpx 14rpx;">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+      </view>
+      <button class="btn" bindtap="bm" data-id="{{courseInfo.id}}" data-cprice="{{courseInfo.price}}" data-title="{{courseInfo.title}}">我要报名</button>

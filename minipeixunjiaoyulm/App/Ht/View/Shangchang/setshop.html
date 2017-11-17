@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 商家账号设置 】</div>
+
+<div class="aaa_pts_show_2">
+    <div>
+       <div class="aaa_pts_4"><a href="{:U('index')}">全部店铺</a></div>
+    </div>
+    <div class="aaa_pts_3">
+      <form action="{:U('setshop')}" method="post" onsubmit="return ac_from();">
+      <ul class="aaa_pts_5">
+         <li><strong style="font-size:16px; color:#0c0;">商家后台登陆信息</strong></li>
+         <li>
+            <div class="d1">登录账号:</div>
+            <div>
+              <input type="text" class="inp_1" name="name" id="name" value="{$shop_info.name}" />
+            </div>
+         </li>
+         <li>
+            <div class="d1">密    码:</div>
+            <div>
+              <input type="password" class="inp_1" name="password" id="password"/>
+            </div>
+            <div style="margin-left:8px;">* 为空时，将不更改密码</div>
+         </li>
+         <li>
+            <div class="d1">确认密码:</div>
+            <div>
+              <input type="password" class="inp_1" name="password2" id="password2" />
+            </div>
+         </li>
+        <li>
+          <input type="submit" name="submit" value="提交" class="aaa_pts_web_3" border="0">
+          <input type="hidden" name="shop_id" value="<?php echo $_REQUEST['shop_id']; ?>">
+        </li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+<script>
+function ac_from(){
+  var password=document.getElementById('password').value;
+  var password2=document.getElementById('password2').value;
+  if(password.length>0){
+		if(password.length<6){
+			alert('密码长度不能少于6');
+			return false;
+		 }else if(password!=password2){
+			alert('两次输入的密码不一致！');
+			return false;
+		 }   
+  }
+  
+}
+</script>
+</body>
+</html>

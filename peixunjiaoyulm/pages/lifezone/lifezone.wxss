@@ -1,0 +1,166 @@
+/* pages/user/dingdan.wxss */
+
+page {
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  line-height: 80rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.cont_a {
+  display: flex;
+}
+
+.cont_b image {
+width:182rpx;
+height:97rpx;
+display:block;
+margin:5rpx 0;
+}
+
+/*供求*/
+
+.tab {
+  flex-direction: row;
+  width: 100%;
+}
+
+.tab-left {
+  width: 100%;
+  line-height: 160%;
+  font-size: 30rpx;
+}
+
+.tab-left view {
+  text-align: center;
+  display: inline-block;
+  width: 25%;
+  padding: 15rpx 0;
+}
+
+.tab-left .active {
+  color: #f00;
+  border-bottom: solid 1px red;
+}
+
+.tab-right {
+  /*line-height: 160%;*/
+  margin-top: 85rpx;
+}
+
+.tab-right .right-item {
+  /*padding-left: 15rpx;*/
+  display: none;
+}
+
+.tab-right .right-item.active {
+  display: block;
+}
+
+.cont_a .clp .blockk {
+  display: block;
+}
+
+.cont_image {
+  /*float: left;*/
+  display: none;
+  position: relative;
+  top: 0rpx;
+}
+
+/*.cont_a .bl{
+    width: 0%; 
+}*/
+
+.clp {
+  padding-right: 5rpx;
+}
+
+.clp image {
+  overflow: inherit;
+  width: 560rpx;
+  height: 300rpx;
+}
+
+/*活动推荐*/
+
+.name {
+  text-align: center;
+  font-size: 35rpx;
+  padding: 20rpx 0;
+}
+
+.cont {
+  width: 100%;
+}
+
+.cont_1 {
+  width: 100%;
+  height: 500rpx;
+  float: left;
+}
+
+.cont_image {
+  width: 100%;
+  height: 0rpx;
+  /*float: left;*/
+}
+
+.title {
+  width: 100%;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 32rpx;
+  overflow: hidden; /*自动隐藏文字*/
+  text-overflow: ellipsis; /*文字隐藏后添加省略号*/
+  white-space: nowrap; /*强制不换行*/
+  background: rgba(0, 0, 0, 0.8);
+  position: relative;
+  top: -60rpx;
+  color: #fff;
+  text-align: left;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #000;
+  text-indent: 0.5cm;
+}
+
+.cont_yuyue {
+  position: relative;
+  height: 40rpx;
+  /*top: -50rpx;*/
+}
+
+.cont_01 {
+  font-size: 32rpx;
+  margin: 0 10rpx;
+  margin-top: 10rpx;
+}
+
+.cont_11 {
+  width: 50%;
+  display: inline-block;
+  color: #da0909;
+  margin-top:20rpx;
+
+}
+
+.cont_12 {
+  width: 200rpx;
+  background: #da0909;
+  float: right;
+  text-align: center;
+  padding: 10rpx 0;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+  font-size: 30rpx;
+  margin-top:20rpx;
+
+}

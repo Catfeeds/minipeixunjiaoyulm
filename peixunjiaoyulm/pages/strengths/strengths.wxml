@@ -1,0 +1,114 @@
+   <!-- <view class="tab-left" bindtap="tabFun">
+    <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}} j" id="tab-hd01" data-id="0">
+    综合
+    </view>
+    <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}} j" id="tab-hd02" data-id="1" data-p="{{p}}" >人气
+ 
+  <view class="triangle-up {{tabArr.ab=='4'? 'san' : ''}}"></view>
+
+    <view class="triangle-down {{tabArr.ab=='5'? 'sa' : ''}}"></view>
+ </view>
+    <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}} j" id="tab-hd01" data-id="2" data-t="{{t}}">销量
+
+  <view class="triangle-up {{tabArr.agg=='4'? 'san' : ''}}"></view>
+
+    <view class="triangle-down {{tabArr.agg=='5'? 'sa' : ''}}"></view>
+
+    </view>
+
+    <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}} j" id="tab-hd02" data-id="3">促销</view>
+  </view> -->
+
+   <view class="tab-right">
+    <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+ 
+ <view class="cont" >
+    <view class="shop">
+      <view class="shop list">
+        <block>
+          <navigator url="../shop_store/shop_store?shopId={{item.id}}" hover-class="navigator-hover" class="nav" wx:for="{{cont}}">
+            <image src="{{item.logo}}" class="pic"></image>
+            <view class="brand_item">
+              <view class="right_cont">
+                <view class="li_title">
+                  <text class="title">{{item.name}}</text>
+                </view>
+                <!--星星-->
+                <view class="comment">
+                  <view class="star">
+                    <view class="star_span" wx:if="{{item.grade>0 && item.grade<1}}">
+                      <image src="../../images/bann.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade==1}}">
+                      <image src="../../images/xing.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade>1 && item.grade<2}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/bann.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade==2}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade>2 && item.grade<3}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/bann.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade==3}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade>3 && item.grade<4}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/bann.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade==4}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade>4 && item.grade<5}}">
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/bann.png"></image>
+                    </view>
+                    <view class="star_span" wx:elif="{{item.grade==5}}">
+                      <image  src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                      <image src="../../images/xing.png"></image>
+                    </view>
+                    <view class="star" wx:else>
+                      暂无评分
+                    </view>
+                  </view>
+                </view>
+                <view class="other">
+                  <text class="olt"> {{item.catname}}</text><text class="ort">{{item.per_price}}元<text style="font-size:26rpx">起</text>
+
+                  </text>
+                </view>
+                <view class="price">
+                  <view class="price1">
+                    <text class="coupon1">简</text>
+                    <text class="dispan">{{item.intro}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </view>  
+      </view>
+         </view>  
+      </view>
+ <!--two-->

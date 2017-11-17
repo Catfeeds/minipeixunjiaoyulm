@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery1.8.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/jCalendar.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.XYTipsWindow.min.2.8.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/mydate.js"></script>
+<link href="__PUBLIC__/ht/css/order.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 店铺入驻审核 】</div>
+
+
+<div class="aaa_pts_show_2">
+    <div>
+       <div class="aaa_pts_4"><a href="{:U('index')}">全部待审核</a></div>
+    </div>
+    <div class="aaa_pts_3">
+      <table class="pro_3">
+         <tr class="tr_1">  
+           <td style="width:100px;">ID</td>
+           <td style="width:110px;">申请会员</td>
+           <td>店铺名称</td>
+           <td style="width:110px;">联系电话</td>
+           <td style="width:110px;">负责人</td>
+           <td style="width:150px;">申请时间</td>
+           <td style="width:100px;">状态</td>
+           <td style="width:180px;">操作</td>
+         </tr>
+         <volist name='list' id='sp'>
+         <tr data-id="{$sp.id}">
+		      <td>{$sp.id}</td>
+          <td>{$sp.u_name}</td>
+          <td>{$sp.name}</td>
+		      <td>{$sp.tel}</td>
+		      <td>{$sp.uname}</td>
+          <td>{$sp.addtime}</td>
+          <td><if condition="$sp.audit eq 0"><label style="color:red;">待审核</label>
+            <elseif condition="$sp.audit eq 1" /><label style="color:green;">已认证</label>
+            <elseif condition="$sp.audit eq 2" /><label style="color:blue;">未通过</label>
+            <else /><label style="color:gray;">未申请</label>
+            </if>
+          </td>
+		      <td>
+		        <a href="{:U('show')}?id={$sp.id}">查看</a>
+		      </td>
+	     </tr>
+		 </volist>
+         <tr>
+            <td colspan="10" class="td_2">
+                {$page} 
+             </td>
+         </tr>
+      </table>
+    </div>
+    
+</div>
+
+<script>
+//搜索按钮点击事件
+function product_option(){
+  $('form').submit(); 
+}
+
+//选择商家按钮事件
+function win_open(url,width,height){
+
+   height==null ? height=600 : height;
+   width==null ?  width=800 : width;
+   var myDate=new Date()
+   window.open(url,'newwindow'+myDate.getSeconds(),'height='+height+',width='+width);
+}
+
+//订单删除方法
+function del_id_url(id){
+   if(confirm("确认删除吗？"))
+   {
+	  location='{:U("del")}?did='+id;
+   }
+}
+</script>
+</body>
+</html>

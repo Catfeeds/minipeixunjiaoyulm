@@ -1,0 +1,175 @@
+<view class="container">
+ 
+ 
+   <view class="classname">
+        <view class="jj">请填写真实的个人信息，我们会有专业的老师给您进行评估，与您联系。谢谢！</view>
+
+  <form bindsubmit="reg">      
+        <view class="xing">姓名：   
+         <input placeholder-class='placeholder' placeholder='请输入你的姓名' class="in" name="truename"  bindinput="bindKeyInput"/>
+         </view>
+
+        <view class="xing">性别：   
+         <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+              <radio value="1" name="sex"/>男
+          </label>
+          <label class="radio">
+              <radio value="2" name="sex" />女
+          </label>
+      </radio-group>
+         </view>
+
+<!-- <view class="section">
+   <view class="myphone">生日:</view>
+  <picker mode="date" value="{{date}}" start="1940-01-01" end="{{date}}" bindchange="bindDateChange">
+    <view class="nb">
+    {{date}}
+    </view>
+  </picker>
+</view> -->
+  <view class="xing">年龄：
+    <input placeholder-class='placeholder' type='number' placeholder='请输入您的年龄' class="in" name='age' />
+  </view>
+  <view class="xing2">常住城市：</view>
+  <view class="section" style="margin-top:1rpx;">
+    <view class="myphone">选择省份:</view>
+    <picker bindchange="bindPickerChangeshengArr" value="{{shengIndex}}" range="{{shengArr}}" data-id="{{shengId[shengIndex]}}">
+      <view class="nb">
+        {{shengArr[shengIndex]}}
+        <input hidden="true" name="province" value="{{shengArr[shengIndex]}}"/>
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="myphone">选择城市:</view>
+    <picker bindchange="bindPickerChangeshiArr" value="{{shiIndex}}" range="{{shiArr}}">
+        <view class="nb">
+          {{shiArr[shiIndex]}}
+          <input hidden="true" name="city" value="{{shiId[shiIndex]}}"/>
+        </view>
+      </picker>
+  </view>
+
+        <view class="xing">婚姻状况：   
+         <radio-group class="radio-group" bindchange="hyChange">
+          <label class="radio">
+            <radio value="1" name="hy"/>未婚
+          </label>
+          <label class="radio">
+            <radio value="2" name="hy" />离异
+          </label>
+          <label class="radio">
+            <radio value="3" name="hy" />丧偶
+          </label>
+      </radio-group>
+         </view>
+
+
+    <view class="xing">身高：
+      <input placeholder-class='placeholder'  placeholder='请输入您的身高'  class="in" name='tall' />
+    </view>
+
+
+<view class="section">
+   <view class="myphone">学历:</view>
+  <picker bindchange="li" value="{{xl}}" range="{{li}}">
+    <view class="nb">
+       {{li[xl]}}
+    </view>
+  </picker>
+</view>
+
+      <view class="section">
+        <view class="myphone">月薪:</view>
+        <picker bindchange="yue" value="{{yx}}" range="{{yue}}">
+          <view class="nb">
+            {{yue[yx]}}
+          </view>
+        </picker>
+      </view>
+        <view class="xing">联系方式：
+           <input placeholder-class='placeholder'  placeholder='请输入你的联系方式'  type='number' class="in" name='tel' />
+        </view>
+        <view class="xing">微信号：
+           <input placeholder-class='placeholder'  placeholder='请输入你的微信'  class="in" name='weixin' />
+        </view>
+        <view class="xing">QQ：
+           <input placeholder-class='placeholder'  placeholder='请输入你的QQ'  type='number' class="in" name='qq'/>
+        </view>
+        <view class="xing">地址：
+           <input placeholder-class='placeholder'  placeholder='请输入你的地址'  class="in" name='address' />
+        </view>
+        <view class="xing">邮箱：
+           <input placeholder-class='placeholder'  placeholder='请输入你的邮箱'   class="in" name='email'/>
+        </view>
+        <picker bindchange="bindChangeCourse" value="{{courseIndex}}" range="{{courseList}}" data-id="{{courseId[courseIndex]}}" wx:if="{{currId==0}}">
+          <view class="xing">
+            会员类型：{{courseList[courseIndex]}}
+            <input hidden="true" name="cid" value="{{courseId[courseIndex]}}"/>
+            <input hidden="true" name="cprice" value="{{coursePrice[courseIndex]}}"/>
+          </view>
+        </picker>
+        <view class="xing">个性签名：
+          <textarea style='height:180rpx;' placeholder-style='font-size:26rpx;' maxlength='150' placeholder="请在这里留下您的痕迹(限150字)" name="intro"/>
+        </view>
+        <view class="xing">理想对象：
+          <textarea style='height:180rpx;' placeholder-style='font-size:26rpx;' maxlength='200' placeholder="请说说你理想中的对象(限200字)" name="lxdx"/>
+        </view>
+        <p class='ru'>ps : 请上传身份证正反面、头像文件</p>
+        <!--注册-->
+
+        <!--上传-->
+      <view class="ii">( 身份证正面）</view>
+      <view class="page-body-info">
+        <!--one-->
+        <view class="kg">
+          <block wx:if="{{imageSrc}}">
+              <image src="{{imageSrc}}" class="image" mode="aspectFit"></image>
+          </block>
+          <block wx:else>
+          <view class="image-plus image-plus-nb" bindtap="chooseImage">
+              <image src="{{zheng}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:if="{{zheng}}"></image>
+              <image src="{{logo}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:else></image>
+          </view>
+          </block>
+        </view>
+      </view>
+      <!--上传-->
+      <view class="ii">( 身份证反面）</view>
+      <view class="page-body-info">
+      <!--one-->
+        <view class="kg">
+        <block wx:if="{{images}}">
+            <image src="{{images}}" class="image" mode="aspectFit"></image>
+        </block>
+        <block wx:else>
+        <view class="image-plus image-plus-nb" bindtap="images">
+            <image src="{{fan}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:if="{{fan}}"></image>
+            <image src="{{logo}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:else></image>
+        </view>
+        </block>
+        </view>
+      </view>
+      <!--上传-->
+      <view class="ii">( 会员头像）</view>
+      <view class="page-body-info">
+      <!--one-->
+        <view class="kg">
+        <block wx:if="{{imgs}}">
+            <image src="{{imgs}}" class="image" mode="aspectFit"></image>
+        </block>
+        <block wx:else>
+        <view class="image-plus image-plus-nb" bindtap="imgs">
+            <image src="{{tx}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:if="{{tx}}"></image>
+            <image src="{{logo}}" style="width:100%;height:100%" binderror="binderrorimg" data-errorimg="../../images/sssss.png" wx:else></image>
+        </view>
+        </block>
+        </view>
+      </view>
+      <button type="primary" form-type="submit" class='su'>提交</button>
+   </form>
+
+   </view>
+
+</view> 

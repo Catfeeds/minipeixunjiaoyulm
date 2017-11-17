@@ -1,0 +1,187 @@
+<!--tap  -->
+<view class="vip_tap" bindtap="pageBindtap">
+  <view class="tap_page {{pageColor == 0?'page_color':''}}" id="0">交友首页</view>
+  <view class="tap_page {{pageColor == 1?'page_color':''}}" id="1">同城异性</view>
+  <view class="tap_page {{pageColor == 2?'page_color':''}}" id="2">心情日记</view>
+  <view class="tap_page {{pageColor == 3?'page_color':''}}" id="3">高级搜索</view>
+</view>
+<!--心情日记  -->
+<view class="diary" hidden="{{pageColor == 2?'':'false'}}">
+  <view class="weui-panel" wx:for="{{pan}}" >
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+
+        <view class="weui-media-box__title weui-media-box__title_in-text">
+          <image class="touxiang" src="{{item.avatar}}"></image>
+
+          <view class="ziti">
+            <text class="ziti_1">{{item.uname}}</text>
+            <text style="font-size:28rpx">{{item.desc}}</text>
+            <view class="classname">
+            </view>
+          </view>
+        </view>
+        <view class="weui-media-box__des">
+      <view class="classname">{{item.content}}</view>
+        <image wx:if="{{item.adv1}}" class="zhan_png" src="{{item.adv1}}" bindtap="show" data-id="{{item.adv1}}" ></image>
+        <image wx:if="{{item.adv2}}" class="zhan_png" src="{{item.adv2}}" bindtap="show" data-id="{{item.adv2}}" ></image>
+        <image wx:if="{{item.adv3}}" class="zhan_png" src="{{item.adv3}}" bindtap="show" data-id="{{item.adv3}}" ></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <!--写需求-->
+  <view class="xie" bindtap="hid">
+        <image class="xie_a"  src="../../images/xiss.png"></image>
+  </view>
+
+  <view class="texs" hidden="{{hindd}}">
+      <form bindsubmit="bindFormSubmit">
+          <textarea placeholder-style='font-size:25rpx;color:#fff' maxlength='200' placeholder="说说今天的心情怎么样...(限200字)" name="textarea" />
+          <view class="page-body-info">
+            <!--one-->
+            <view class="kk">
+              <block wx:if="{{imageSrc}}">
+                <image src="{{imageSrc}}" class="image" mode="aspectFit"></image>
+              </block>
+              <block wx:else>
+                <view class="image-plus image-plus-nb" bindtap="chooseImage">
+                  <image src="../../images/s.png" style="width:100%;height:100%"></image>
+                </view>
+              </block>
+            </view>
+            <!--two-->
+            <view class="kk">
+              <block wx:if="{{image}}">
+                <image src="{{image}}" class="image" mode="aspectFit"></image>
+              </block>
+              <block wx:else>
+                <view class="image-plus image-plus-nb" bindtap="choose">
+                  <image src="../../images/s.png" style="width:100%;height:100%"></image>
+                </view>
+              </block>
+            </view>
+            <view class="kk">
+              <block wx:if="{{img}}">
+                <image src="{{img}}" class="image" mode="aspectFit"></image>
+              </block>
+              <block wx:else>
+                <view class="image-plus image-plus-nb" bindtap="choo">
+                  <image src="../../images/s.png" style="width:100%;height:100%"></image>
+                </view>
+              </block>
+            </view>
+          </view>
+        <button  form-type="submit">发布</button>
+    </form>  
+  </view>
+</view>
+
+
+ <!-- 轮播图 -->
+<view class="slideshow" hidden="{{!slideshow}}" bindtap="hide" >
+  <view class='swi'>
+    <image src="{{selectedId}}"  bindload="imageLoad" style="width:{{imageWidth}}px;;height:{{imageHeight}}px;"/>
+  </view>
+</view>
+
+<!--交友 首页--数据 -->
+<view class="data_div" hidden="{{pageColor == 0?'':'false'}}">
+  <view class="page_data" wx:for="{{dan}}">
+    <view class="data">
+      <view class="data_left">
+        <image src="{{item.photo}}"></image>
+      </view>
+      <view class="data_right">
+        <view class="data_1">
+          <text>{{item.uname}}</text>
+          <image src="../../images/huiyuan.gif" wx:if="{{item.sex==2}}"></image>
+          <image src="../../images/men.png" wx:if="{{item.sex==1}}"></image>
+        </view>
+        <view class="data_2">{{item.birthday}}岁 {{item.cityname}} {{item.xl}}</view>
+        <view class="data_3">{{item.intro}}</view>
+        <view class="data_4" data-id='{{item.id}}' bindtap='showinfo'>
+          <button type="warn" > 查看资料 </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--同城异性--数据 -->
+<view class="data_div" hidden="{{pageColor == 1?'':'false'}}">
+  <view class="page_data" wx:for="{{yi}}">
+    <view class="data">
+      <view class="data_left">
+        <image src="{{item.photo}}"></image>
+      </view>
+      <view class="data_right">
+        <view class="data_1">
+          <text>{{item.uname}}</text>
+          <image src="../../images/huiyuan.gif" wx:if="{{item.sex==2}}"></image>
+          <image src="../../images/men.png" wx:if="{{item.sex==1}}"></image>
+        </view>
+        <view class="data_2">{{item.birthday}}岁 {{item.cityname}} {{item.xl}}</view>
+        <view class="data_3">{{item.intro}}</view>
+        <view class="data_4" data-id='{{item.id}}' bindtap='showinfo'>
+          <button type="warn" > 查看资料 </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--高级搜索  -->
+<view class="search" hidden="{{pageColor == 3?'':'false'}}">
+<form bindsubmit="bindSearch">
+  <view class="search_data">
+    <view class="search_1">
+      <text>性别：</text>
+      <picker mode="selector" range="{{sex}}" value="{{index0}}" bindchange="array">
+        <text>{{sex[index0]}}</text>
+      </picker>
+    </view>
+    <view class="search_1">
+      <text>年龄：</text>
+      <picker mode="selector" range="{{age}}" value="{{index1}}" bindchange="array1">
+        <text>{{age[index1]}}</text>
+      </picker>
+      <text class="search_text">-</text>
+      <picker mode="selector" range="{{age1}}" value="{{index11}}" bindchange="array11">
+        <text>{{age1[index11]}}</text>
+      </picker>
+    </view>
+    <view class="search_1">
+      <text>地区：</text>
+      <!--省  -->
+      <picker bindchange="bindPickerChangeshengArr" value="{{shengIndex}}" range="{{shengArr}}" data-id="{{shengId[shengIndex]}}">
+        <view class="picker">
+          {{shengArr[shengIndex]}}
+          <input hidden="true" name="province" value="{{shengArr[shengIndex]}}"/>
+        </view>
+      </picker>
+      <text class="vacancy"></text>
+      <!-- 市 -->
+      <picker bindchange="bindPickerChangeshiArr" value="{{shiIndex}}" range="{{shiArr}}">
+        <view class="picker">
+          {{shiArr[shiIndex]}}
+          <input hidden="true" name="city" value="{{shiArr[shiIndex]}}"/>
+        </view>
+      </picker>
+    </view>
+    <view class="search_1">
+      <text>婚史：</text>
+      <picker mode="selector" range="{{marriage}}" value="{{index2}}" bindchange="array2">
+        <text>{{marriage[index2]}}</text>
+      </picker>
+    </view>
+  </view>
+  <view class="search_button">
+    <button type="primary" form-type="submit" style="background:#dd406d;"> 搜索     </button>
+  </view>
+  </form>
+</view>
+
+ 

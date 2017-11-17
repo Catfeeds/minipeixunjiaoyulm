@@ -1,0 +1,43 @@
+<!--<view class="orderDetails" wx:for="{{vou}}">
+	<view class="orderListDetails">
+		<view class="productInfo">
+           <text class="x">¥</text>
+           <text class="y">{{item.amount}}</text> 
+      
+	    </view>
+
+	<view class="pr">
+           <text class="n">{{item.title}}</text>
+           <text class="b">满{{item.full_money}}可用（{{item.desc}}）</text>
+	    </view>
+    <view class="hh" bindtap="getvou" data-vid="{{item.id}}">
+      <view class="hb" wx:if="{{item.point>0}}">积分兑换</view>
+      <view class="hb" wx:else>领取</view>
+    </view>
+</view>
+          <view class="c">
+              有效期：{{item.start_time}}-{{item.end_time}}</view>
+        
+</view>	-->
+
+
+
+
+    <view class="demo" >
+      <!-- 效果4 begin -->
+      <view class="stamp stamp04" wx:for="{{vou}}">
+        <view class="par">
+          <p>{{item.title}}</p>
+          <sub class="sign">￥</sub><span>{{item.amount}}</span>
+          <sub>优惠券</sub>
+          <p>满{{item.full_money}}可用（{{item.desc}}）</p>
+        </view>
+        <view class="copy">副券
+          <p>{{item.start_time}}</p>
+          <p>{{item.end_time}}</p>
+          <a href="#" bindtap="getvou" data-vid="{{item.id}}">已使用</a>
+        </view>
+        <i></i>
+      </view>
+      <!-- 效果4 end -->
+    </view>

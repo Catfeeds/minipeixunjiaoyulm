@@ -1,0 +1,192 @@
+<!--index.wxml-->
+<view class="page">
+  <swiper style="height:200px;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item.photo}}" style="width:100%;height:200px;" bindtap="advtap" data-type="{{item.type}}" data-action="{{item.action}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="er">
+    <!--定位-->
+    <view class="dingwei">
+      <view class="sb" bindtap="getLocation">
+        <image mode="aspectFit" src="../../images/map.png" class="im"></image> {{address}}
+      </view>
+    </view>
+    <!--搜索-->
+    <view class="sousuo" bindtap="suo">
+      <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="请点击进行搜索" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchAction" disabled="true" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--分类-->
+  <view class="df nav">
+    <view wx:for="{{proCat}}" class="df_1" data-ptype="{{item.ptype}}" data-text="{{item.name}}" bindtap="{{item.link}}">
+      <image src="{{item.photo}}"></image>
+      {{item.name}}
+    </view>
+  </view>
+
+  <!--分类2-->
+
+  <view class="df nav">
+    <view wx:for="{{proLastCat}}" class="df_1" data-ptype="{{item.ptype}}" data-text="{{item.name}}" bindtap="{{item.link}}">
+      <image src="{{item.photo}}"></image>
+      {{item.name}}
+    </view>
+  </view>
+  <navigator url="../ritual/ritual">
+    <view class="you">
+      <image src="{{imgs}}"></image>
+    </view>
+  </navigator>
+
+
+
+  <!--我是一条分割线-->
+  <!-- <view class="xian"></view> -->
+
+  <!--推荐内容开始-->
+  <view class="name">
+    <i> 品牌街 </i>
+  </view>
+  <scroll-view scroll-x="true" class="sc">
+    <view class="miu" wx:for="{{brand}}" data-id="{{item.id}}" bindtap='jj'>
+      <image src="{{item.photo}}" class="ie"></image>
+      <viem class='mi'>{{item.name}}</viem>
+    </view>
+  </scroll-view>
+  <!--我是一条分割线-->
+  <!-- <view class="xian"></view> -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{ggMiddle}}">
+      <swiper-item>
+        <image src="{{item.photo}}" style="width:100%;height:150px;" bindtap="advtap" data-type="{{item.type}}" data-action="{{item.action}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="names" bindtap="kecheng">
+    <i> 推荐活动 </i>
+    <image class="x" src="../../images/x_right.png"></image>
+  </view>
+
+
+
+<!--分类-->
+  <view class="co">
+    <!--推荐活动商品-->
+    <view class="prr" wx:for="{{course}}">
+      <navigator url="../class/class?courseId={{item.id}}&title={{item.title}}">
+        <view class="popss">
+          <image class="cont_image" src="{{item.photo}}"></image>
+        </view>
+        <view class="title">{{item.title}}</view>
+        <view class="gmh df">
+<span class="xiaoliang df_2">{{item.intro}}
+</span>
+        </view>
+      </navigator>
+    </view>
+  </view>
+<!--分类-->
+
+<!--报名-->
+ <view class="co">
+    <view class="zixun">
+      <image src="../../images/zxkf.png" class="jjj"></image>
+      <image src="../../images/baoming.png" class="ooo" bindtap="tian"></image>
+      <view class="gs">
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+        <contact-button class="kefu">
+        </contact-button>
+      </view>
+    </view>
+  </view>
+<!--报名-->
+
+<view class="xian"></view>
+  <view class="names" bindtap="zhanhui">
+    <i> 最新展会 </i>
+    <image class="x" src="../../images/x_right.png"></image>
+  </view>
+
+<!--分类-->
+  <view class="co">
+    <!--推荐活动商品-->
+    <view class="prr" wx:for="{{ex}}">
+      <navigator url="../class_zhan/class_zhan?eid={{item.id}}&title={{item.title}}">
+        <view class="popss">
+          <image class="cont_image" src="{{item.photo}}"></image>
+        </view>
+        <view class="title">{{item.title}}</view>
+        <view class="gmh df">
+<span class="xiaoliang df_2">{{item.intro}}
+</span>
+        </view>
+      </navigator>
+    </view>
+  </view>
+<!--分类-->
+
+  <!--我是一条分割线-->
+  <view class="xian"></view>
+
+
+  <view class="na">
+    <i> 推荐商品 </i>
+  </view>
+
+  <view class="cont">
+    <navigator class="pr" url="../product/detail?productId={{item.id}}" hover-class="changestyle" wx:for="{{productData}}">
+      <image class="photo" src="{{item.photo_x}}"></image>
+      <view class="title">{{item.name}} </view>
+      <view style="display:flex;line-height:50rpx;padding:10rpx 0;">
+        <view class="gmxx" style="  color: red;">
+          ¥ {{item.price_yh}}
+        </view>
+        <view class="gmx">
+          ¥ {{item.price}}
+        </view>
+      </view>
+      <view style="display:flex;line-height:50rpx;color:#999">
+        <view class="gmxx" style="font-size:28rpx;width:30%">
+          <text wx:if="item.is_show==1">新品</text>
+          <text wx:elif="item.is_hot==1">热销</text>
+          <text wx:else>推荐</text>
+        </view>
+        <view class="ku" style="width:60%">
+          销量：{{item.shiyong}}
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="clear mt10" bindtap="getMore">点击查看更多</view>
+</view>

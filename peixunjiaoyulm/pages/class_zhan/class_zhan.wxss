@@ -1,0 +1,79 @@
+   /*大标题*/
+.biaoti{
+    text-align: center;
+    margin: 30rpx 50rpx;
+    font-weight: 700;
+    line-height: 60rpx;
+    padding-bottom: 10rpx;font-size:35rpx;
+    border-bottom: 1rpx solid #ccc;
+
+}
+/*副标题*/
+.riqi{
+    margin-left: 20rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #ccc;
+    margin: 0 auto;
+    width: 541rpx;
+    font-weight: 100
+}
+/*新闻内容*/
+.news{
+    margin: 0 20rpx;
+    font-size: 34rpx;
+    line-height: 47rpx;
+    margin-bottom: 150rpx;
+}
+/*新闻图片one*/
+ .ima{
+    width: 100%;
+    padding: 20rpx 0;
+    height: 640rpx;
+}
+/*基本信息*/
+.na {
+  padding: 10px 0;
+  text-align: left;
+  font-weight: 700;
+  background: #fff;
+  font-size: 37rpx;
+}
+/*全局p*/
+p{
+  display: inline-block;
+  padding-bottom: 10rpx;
+  font-size: 29rpx;
+}
+/*图片two*/
+.c-font-center{
+   width: 100%;
+}
+.c{
+   text-align: center;
+   margin: 0 auto;
+   color: #999;
+}
+.contai p{
+  text-align: center;
+}  
+.c-font-bold{
+  color:#666;margin:0 auto; text-align:center;
+}
+
+p{
+  display: block;
+}
+.btn{
+  background: #ff4081;
+  color: #fff; position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.wxParse{
+   margin-bottom: 100rpx;}
+
+   .fang{
+      font-size: 30rpx;
+      text-indent: 0.8cm
+   }

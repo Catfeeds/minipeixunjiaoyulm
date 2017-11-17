@@ -1,0 +1,43 @@
+<!--pages/user/dingdan.wxmldisplay: flex-->
+<view class="swiper-tab">
+  <scroll-view scroll-x="true" style=" white-space: nowrap; ">
+    <view class="tab-left">
+      <view bindtap="tabFun" class="{{tabArr.curHdIndex==item.id? 'active' : ''}}" id="tab-hd01" data-id="{{item.id}}" wx:for="{{clist}}">{{item.name}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="tab-right">
+  <!-- 综合 -->
+  <!--1-->
+  <view class="right-item active">
+
+    <view class="cont">
+      <view class="cont_1" wx:for="{{cont}}" wx:key="xb" wx:for-item="att">
+        <!--外层-->
+        <view class="cont_a">
+          <!--大图-->
+          <view class="clp">
+            <view data-in="{{att.inn}}" class=" cont_image blockk">
+              <image src="{{att.img}}"></image>
+            </view>
+          </view>
+
+          <!--右层-->
+          <view class="cont_b">
+            <image class="" data-xb="{{index}}" data-imgs="{{att.img1}}" src="{{att.img1}}" bindtap="bitap"></image>
+            <image class="" data-xb="{{index}}" data-imgs="{{att.img2}}" src="{{att.img2}}" bindtap="bitap"></image>
+            <image class="" data-xb="{{index}}" data-imgs="{{att.img3}}" src="{{att.img3}}" bindtap="bitap"></image>
+          </view>
+        </view>
+        <!--<view class="title">{{item.titie}}</view>-->
+        <view class="cont_yuyue">
+          <view class="cont_01">{{att.name}}</view>
+          <view class="cont_11">￥ {{att.price}}</view>
+          <view class="cont_12" bindtap="calling" data-tel="{{att.tel}}">立即联系</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
